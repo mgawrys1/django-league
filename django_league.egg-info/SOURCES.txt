@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+django_league.egg-info/PKG-INFO
+django_league.egg-info/SOURCES.txt
+django_league.egg-info/dependency_links.txt
+django_league.egg-info/top_level.txt
+migrations/0001_initial.py
+migrations/0002_auto_20160816_2019.py
+migrations/__init__.py
+templatetags/__init__.py
+templatetags/league_tags.py

@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include league/static *
+recursive-include league/templates *

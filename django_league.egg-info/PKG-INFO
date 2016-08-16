@@ -1,0 +1,36 @@
+Metadata-Version: 1.1
+Name: django-league
+Version: 0.1
+Summary: Django app which makes easy to create sports team website.
+Home-page: https://www.aviators.com.pl/
+Author: Michal Gawrys
+Author-email: mgawrys@yourway.pl
+License: MIT License
+Description: # django-league
+        Django app which makes easy to create sports team website
+        
+        ## Requirements
+        Django == 1.9.7
+        
+        Python >= 3
+        
+        ## Installation
+        Download app to your project and enable it in INSTALLED_APPS
+        
+        Then include urls in urls.py
+        
+        ```url(r'^league/', include('league.urls', namespace='league')),```
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.9
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
