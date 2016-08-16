@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load league_tags %}
+{% block title %}{% trans "Standings" %}{{ table_name }}{% endblock %}
+{% block content %}
+<article id="league-{{ slug }}" class="news">
+    <h1>{% trans "Standings" %}{{ table_name }}</h1>
+    <hr />
+    {% if standings %}
+        {% include 'content/full_table.html' with standings=standings %}
+    {% endif %} 
+</article>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% load i18n %}
+{% if future_matches or past_matches %}
+              <div id="matches" class="row border-bottom">
+                      <h1 class="bigtitle col-md-12">{% trans "Season" %} {% now "Y" %}</h1>
+                      <div class="row custom-background">
+                           {% for match in past_matches %}
+                               <div id="match-{{match.pk}}" class="match-item col-md-2 col-sm-2 col-xs-4">
+                               <div class="match-info">
+                                <span class="league">{{match.season.league}} | {{ match.city }}</span>
+                                <span class="team">{{ match.home_team.short_name }}</span>
+                                <span class="score"> {% if match.home_team_score != Null and match.away_team_score != Null %}{{ match.home_team_score }} : {{ match.away_team_score}} {% else %} -- : -- {% endif %}</span>
+                                <span class="team">{{ match.away_team.short_name }}</span>
+                                <span class="date">{{match.date}}</span>
+                               </div>
+                               <div class="match-more">
+                                    <img class="teamlogo" src="{% if match.home_team.pk != my_team %} {% if match.home_team.logo %}{{ match.home_team.logo.url }}{% endif %} {% else %} {% if match.away_team.logo %}{{ match.away_team.logo.url }}{% endif %} {% endif %}">
+                               </div>
+                           </div>
+                           {% endfor %}
+                           {% for match in future_matches %}
+                               <div id="match-{{match.pk}}" class="match-item {% if forloop.first %} next {% endif %} col-md-2 col-sm-2 col-xs-4">
+                               <div class="match-info">
+                                <span class="league">{{match.season.league}} | {{ match.city }}</span>
+                                <span class="team">{{ match.home_team.short_name }}</span>
+                                <span class="score"> {% if match.home_team_score != Null and match.away_team_score != Null %}{{ match.home_team_score }} : {{ match.away_team_score}} {% else %} -- : -- {% endif %}</span>
+                                <span class="team">{{ match.away_team.short_name }}</span>
+                                <span class="date">{{match.date}}</span>
+                               </div>
+                               <div class="match-more">
+                                    <img class="teamlogo" src="{% if match.home_team.pk != my_team %} {% if match.home_team.logo %}{{ match.home_team.logo.url }}{% endif %} {% else %} {% if match.away_team.logo %}{{ match.away_team.logo.url }}{% endif %} {% endif %}">
+                               </div>
+                           </div>
+                          {% endfor %}
+                           
+                      </div>
+              </div>
+{% endif %}

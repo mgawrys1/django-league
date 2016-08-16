@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}{{ team.name }}{% endblock %}
+{% load i18n %}
+{% load league_tags %}
+{% block content %}
+<article id="league-{{ slug }}-{{team.slug}}" class="news">
+    <h1>{{ team.name }}</h1>
+    <hr />
+        {% include 'content/team_details.html' with team=team team_more=team_more %}
+        {% if team_roster %}
+        <h2>{% trans "Roster" %}</h2>
+         {% include 'content/team_roster.html' with roster=team_roster %}
+        {% endif %}
+        {% if team_schedule %}
+             <h2>{% trans "Schedule" %}</h2>
+            {% include 'content/schedule.html' with schedule=team_schedule my_team=team.pk %}
+        {% endif %}
+
+</article>
+<hr />
+{% endblock %}

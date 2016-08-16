@@ -1,0 +1,17 @@
+{% load i18n %}
+{% if standings %}
+<div id="standings" class="row">
+                          <h2>{% trans "Standings" %}</h2>
+                          <hr>
+                          <table class="table table-striped table-bordered">
+                              <thead><tr><th class="num">{% trans "#" %}</th><th>{% trans "Team" %}</th><th class="num">{% trans "Points" %}</th></tr></thead>
+                              <tbody>
+                                    {% for team in standings %}
+                                        <tr {% if team.team.my_team %} class="weare" {% endif %}><td>{{ team.position }}</td><td>{{ team.team.short_name }}</td><td class="text-center">{{ team.points }}</td></tr>
+                                    {% endfor %}
+                              </tbody>
+                        </table> 
+<a class="button pull-right" href="{% url 'league:standings_full' season=season %}">więcej</a>
+</div>
+
+{% endif %}

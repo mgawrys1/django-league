@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}{{ page_name }} {{team.short_name}}{% endblock %}
+
+{% load i18n %}
+{% load league_tags %}
+{% block content %}
+<article id="league-{{ slug }}-schedule" class="news">
+    <h1>{% if page_name %}{{ page_name }}{% else %} {% trans "Schedule" %} {% endif %} {% if team %} {{team.short_name}} {% endif %} {% if season %} <small class="pull-right">{{season.name}}</small> {% endif %}</h1>
+    <hr />
+        {% if schedule %}
+            {% include 'content/schedule.html' with schedule=schedule %}
+        {% else %}
+            <p>Brak danych</p>
+        {% endif %}
+
+</article>
+<hr />
+{% endblock %}

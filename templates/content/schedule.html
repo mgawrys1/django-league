@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load league_tags %}
+
+{% if schedule %}
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th class="text-center">{% trans "Week" %}</th>
+            <th class="text-center">{% trans "Date" %}</th>
+            <th class="text-center">{% trans "Home team" %}</th>
+            <th class="text-center">{% trans "Score" %}</th>
+            <th class="text-center">{% trans "Away Team" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+{% for match in schedule %}
+        <tr>
+                <td class="text-center">{{match.week}}</td>
+                <td class="text-center">{{match.date}}</td>
+                <td class="text-center {% if match.home_team.my_team == 1 or match.home_team.pk == my_team %}text-strong{% endif %}">{{match.home_team}}</td>
+                <td class="text-center">{% if match.home_team_score != Null and match.away_team_score != Null %}{{ match.home_team_score }} : {{ match.away_team_score }} {% else %} - : - {% endif %}</td>
+                <td class="text-center {% if match.away_team.my_team == 1 or match.away_team.pk == my_team %}text-strong{% endif %}">{{match.away_team}}</td>
+        </tr>
+
+{% endfor %}
+
+               </tbody>
+        </table>
+{% endif %}

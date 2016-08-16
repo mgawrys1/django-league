@@ -1,0 +1,9 @@
+{% load i18n %}
+{% load league_tags %}
+
+
+{% if team_more.roster_image %}
+        <img src="{{ team_more.roster_image.url }}" class="img-responsive" />
+{% elif team.logo %}
+        <img src="{{ team.logo.url }}" class="img-responsive" />
+{% endif %}
